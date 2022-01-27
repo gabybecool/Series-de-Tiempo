@@ -1,0 +1,56 @@
+#Ejercicio1 
+Dada la serie de tiempo: 53, 43, 66, 48, 52, 42, 44, 56, 44, 58, 41, 54, 51, 56,
+38, 56, 49, 52, 32, 52, 59, 34, 57, 39, 60, 40, 52, 44, 65, 43.
+
+>library(tseries)
+Registered S3 method overwritten by 'quantmod':
+method  from 
+as.zoo.data.frame zoo
+
+'tseries' version: 0.10-48
+
+'tseries' is a package for time series analysis and computational finance.
+See 'library(help="tseries")´for details.
+
+> library(forecast)
+> library(stats)
+> library(utils)
+> library(TSA)
+Registered S3 methods overwritten by 'TSA':
+ method from
+ fitted.Arima forecast
+ plot.Arima forecast
+Attaching package: ‘TSA’
+The following objects are masked from ‘package:stats’:
+ acf, arima
+The following object is masked from ‘package:utils’:
+ tar
+> library(astsa)
+Attaching package: ‘astsa’
+The following object is masked from ‘package:forecast’:
+ gas
+> EJERCICIO1<-read.table(file="ejercicio1.txt",header = F,sep = " ")
+> plot(EJERCICIO1)
+
+EJERCICIO1<-read.table(file="ejercicio1.txt",header = F,sep = " ")
+> plot(EJERCICIO1)
+> ## Convertimos la base de datos en serie de tiempo
+> EJERCICIO1TS<-ts(EJERCICIO1)
+> EJERCICIO1TS
+Time Series:
+Start = 1
+End = 30
+Frequency = 1
+
+> ## Graficamos la serie
+> plot(EJERCICIO1TS,type= "o",pch=30,ylab= "Serie de tiempo")
+There were 30 warnings (use warnings() to see them)
+
+> a<-acf(EJERCICIO1TS, lag= length(EJERCICIO1TS))
+There were 50 or more warnings (use warnings() to see the first 50)
+> p<-pacf(EJERCICIO1TS, lag= length(EJERCICIO1TS))
+
+
+
+
+
